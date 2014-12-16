@@ -114,14 +114,17 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 
 .mz-button-red{
   background-color: map-get($color-red,'A400');
+  color:white;
 }
 
 .mz-button-purple{
   background-color: map-get($color-purple,'A400');
+  color:white;
 }
 
 .mz-button-blue{
   background-color: map-get($color-blue,'A400');
+  color:white;
 }
 
 .mz-button-light-blue{
@@ -130,5 +133,11 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 
 .mz-button-green{
   background-color: map-get($color-green,'A400');
+  color:white;
 }
 
+
+.mz-button > paper-ripple {
+  border-radius: 2px;
+  overflow: hidden;
+}
