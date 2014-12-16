@@ -16,6 +16,45 @@ $swift-ease-in-out-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
 $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function;
 
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  @include gridle_container ();
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  background-color : #f6f6f6;
+  padding: 40px 0;
+  @include gridle_centered ( );
+  padding:30px 30px 50px 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+
+ul{
+  @include gridle(8);
+  @include gridle(12, mobile tablet);
+  list-style-type: none;
+  text-align: center;
+  display: block;
+  margin-top: 3px;
+  li{
+    display:inline;
+    margin:0 10px 0 0;
+    float: right;
+    @include gridle_state(mobile){
+      float: none;
+      text-align: center;
+    };
+  }
+}
+
 
 
 .mz-button {
@@ -113,9 +152,11 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 
 
 .mz-square{
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  width:200px;
+  @include gridle_centered ( );
+  @include gridle(8);
+  @include gridle(12, mobile tablet);
   height:200px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 
