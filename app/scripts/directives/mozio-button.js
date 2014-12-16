@@ -1,14 +1,18 @@
 /* jshint devel:true */
 'use strict';
 (function(){
-  angular.module('mozio-directives',[])
-  .directive('mozioButton',MozioButtonDirective);
+  angular.module('mozio-directives')
+  .directive('mzButton',MozioButtonDirective);
   function MozioButtonDirective(){
     return{
       restrict:'E',
+      scope:{
+        color:"@"
+      },
       replace:true,
       transclude:true,
-      template:getTemplate
+      template:getTemplate,
+      controller:mozioButtonCtrl
     }
   };
 
@@ -18,11 +22,16 @@
   };
 
   function getTemplate(element,attr){
-
     if(isAnchor(attr)){
-      return '<a class="mz-button" ng-transclude></a>';
+      return '<a class="mz-button mz-raised" ng-transclude data-ng-click="onClick()"></a>';
     }else{
-      return '<button class="mz-button" ng-transclude></button>';
+      return '<button class="mz-button mz-raised" ng-transclude data-ng-click="onClick()"></button>';
     }
+  };
+
+  function mozioButtonCtrl($scope,hey){
+    $scope.onClick = function(){
+      hey.emit('color-change',{color:$scope.color});
+    };
   };
 })();

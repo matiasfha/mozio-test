@@ -1,7 +1,8 @@
 /* jshint devel:true */
 'use strict';
 (function(){
-  angular.module('mozio-test',['mozio-directives','ngRoute','ngAnimate'])
+  angular.module('mozio-directives',['hey']);
+  angular.module('mozio-test',['mozio-directives','ngRoute'])
   .config(function($routeProvider,$locationProvider){
     $locationProvider.html5Mode({
       enabled: true,
@@ -16,6 +17,10 @@
       .otherwise({redirectTo:'/'});
   })
   .controller('MainCtrl',function($scope){
-    console.log('MainController');
+    $scope.items = [
+      {color:"red",text:"Red Button"},
+      {color:"blue",text:"Blue Button"},
+      {color:"green",text:"Green Button"}
+    ]
   });
 })();

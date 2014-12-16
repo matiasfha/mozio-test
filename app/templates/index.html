@@ -1,4 +1,11 @@
-<mozio-button class="mz-button-blue mz-raised">
-  Click Me!
-  <paper-ripple fit></paper-ripple>
-</mozio-button>
+<ul>
+  <li ng-repeat="item in items">
+    <mz-button class="mz-background-{{item.color}}" color="{{item.color}}">
+      {{item.text}}
+      <paper-ripple fit></paper-ripple>
+    </mz-button>
+  </li>
+</ul>
+
+<br />
+<mz-square></mz-square>
