@@ -1,0 +1,134 @@
+// import settings :
+@import 'settings';
+@import 'grid';
+@import 'colors';
+
+$swift-ease-out-duration: 0.4s;
+$swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function;
+
+$swift-ease-in-duration: 0.3s;
+$swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function;
+
+$swift-ease-in-out-duration: 0.5s;
+$swift-ease-in-out-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+$swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function;
+
+
+
+
+.mz-button {
+
+  user-select: none;
+  position: relative; //for child absolute-positioned <canvas>
+
+  outline: none;
+  border: 0;
+  padding: 6px;
+  margin: 0;
+  background: transparent;
+  white-space: nowrap;
+
+  text-align: center;
+
+  // Always uppercase buttons
+  text-transform: uppercase;
+  font-weight: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-decoration: none;
+
+  cursor: pointer;
+  overflow: hidden;   // for ink containment
+
+  transition: box-shadow $swift-ease-in-out-duration $swift-ease-in-out-timing-function,
+              background-color $swift-ease-in-out-duration $swift-ease-in-out-timing-function,
+              transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function;
+
+  &.ng-hide {
+    transition: none;
+  }
+;
+
+  &.mz-cornered {
+    border-radius: 0;
+  }
+
+  &.mz-icon {
+    padding: 0;
+    background: none;
+  }
+
+  &.mz-raised {
+    transform: translate3d(0, 0, 0);
+
+    &:not([disabled]) {
+      @extend .mz-shadow-bottom-z-1;
+    }
+  }
+}
+
+
+.mz-ripple-container {
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.55s $swift-ease-out-timing-function;
+}
+
+.mz-ripple {
+  position: absolute;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  opacity: 0;
+  border-radius: 50%;
+  &.mz-ripple-placed {
+    transition: left 0.9s $swift-ease-out-timing-function,
+                top 0.9s $swift-ease-out-timing-function,
+                margin 0.65s $swift-ease-out-timing-function,
+                border 0.65s $swift-ease-out-timing-function,
+                width 0.65s $swift-ease-out-timing-function,
+                height 0.65s $swift-ease-out-timing-function,
+                opacity 0.65s $swift-ease-out-timing-function,
+                transform 0.65s $swift-ease-out-timing-function;
+  }
+  &.mz-ripple-scaled {
+    transform: scale(1);
+  }
+  &.mz-ripple-active, &.mz-ripple-full, &.mz-ripple-visible {
+    opacity: 0.20;
+  }
+}
+
+.mz-shadow-bottom-z-1 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.mz-button-red{
+  background-color: map-get($color-red,'A400');
+}
+
+.mz-button-purple{
+  background-color: map-get($color-purple,'A400');
+}
+
+.mz-button-blue{
+  background-color: map-get($color-blue,'A400');
+}
+
+.mz-button-light-blue{
+  background-color: map-get($color-light-blue,'A400');
+}
+
+.mz-button-green{
+  background-color: map-get($color-green,'A400');
+}
+
